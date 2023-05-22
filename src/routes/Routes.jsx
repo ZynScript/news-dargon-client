@@ -39,13 +39,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Category />,
-        loader: () => fetch("http://localhost:5000/news"),
+        loader: () =>
+          fetch("https://news-dragon-server-zynscript.vercel.app/news"),
       },
       {
         path: "/category/:id",
         element: <Category />,
         loader: ({params}) =>
-          fetch(`http://localhost:5000/categories/${params.id}`),
+          fetch(
+            `https://news-dragon-server-zynscript.vercel.app/categories/${params.id}`
+          ),
       },
     ],
   },
@@ -60,7 +63,10 @@ const router = createBrowserRouter([
             <News />
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`),
+        loader: ({params}) =>
+          fetch(
+            `https://news-dragon-server-zynscript.vercel.app/news/${params.id}`
+          ),
       },
     ],
   },
